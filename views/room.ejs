@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css" crossorigin="anonymous">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script>
+        const ROOM_ID = "<%= roomId %>"
+    </script>
+    <script src="https://unpkg.com/peerjs@1.4.7/dist/peerjs.min.js" defer></script>
+    <script src="/socket.io/socket.io.js" defer></script>
+
+    <title>Meta-Call</title>
+</head>
+
+<body>
+    <div id="main" class="row" style="margin-right: 0px">
+        <div id="call-buttons" class="float">
+            <button id="cam-button"  class="float-button enabled-button">
+                <font size="6"> 📷</font>
+            </button>
+            <button id="mute-button" class="float-button enabled-button">
+                <font size="6">🎤</font>
+            </button>
+            <button id="end-button" class="float-button enabled-button">
+                <font size="6">📞</font>
+            </button>
+        </div>
+
+        <div class="col-10" style="padding-right: 0px;">
+            <div id="video-grid">
+
+            </div>
+
+        </div>
+        <div class="col-2" style="height: 100vh; padding: 0px;" >
+            <div class="container" style="display:flex; flex-direction: column; height: 100%; padding: 0px;">
+                <div style="background-color: currentColor; border-radius: 5px;">
+                    <div class="chat-heading" >Chat</div>
+                </div>
+                <div id = "message-container" style="align-self:start;flex: auto;width: 100%; padding: 0px; padding-left: 2px; overflow: auto; background-color: rgb(230, 230, 230);">
+                    <div id="messages">
+                    </div>
+                </div>
+                <div class="chat-input"style="align-self:end; width: 100%; display:flex; gap:2px; padding:2px;">
+                    <input type="text" id="inputText" style="flex: auto; ">
+                    <button onclick="sendMsg()">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <template id="template">
+        <div id="call-card" class="grid-item">
+            <div class="card text-bg-dark">
+                <div class="card-img-top">
+
+                </div>
+                <div class="card-img-overlay">
+                    <h5 class="card-title" style="color: white;">Name</h5>
+                </div>
+            </div>
+        </div>
+    </template>
+    <script src="script.js" defer></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+
+
+</html>
